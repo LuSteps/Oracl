@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oracl - AI Tarot Reading</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔮 Oracl</h1>
+      <p class="subtitle">AI-Powered Tarot Readings</p>
+    </header>
+
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="screen active">
+      <div class="welcome-content">
+        <h2>Discover Your Path</h2>
+        <p>Enter your question and let the tarot cards guide you</p>
+        
+        <div class="query-section">
+          <label for="user-query">What seeks your heart?</label>
+          <textarea 
+            id="user-query" 
+            placeholder="e.g., What should I focus on in my career right now?"
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="spread-selection">
+          <label>Choose Your Spread</label>
+          <div class="spread-options">
+            <button type="button" class="spread-btn active" data-spread="three-card">
+              <span class="spread-icon">🃏</span>
+              <span class="spread-name">Three Card</span>
+              <span class="spread-desc">Past, Present, Future</span>
+            </button>
+            <button type="button" class="spread-btn" data-spread="guidance">
+              <span class="spread-icon">✨</span>
+              <span class="spread-name">Guidance</span>
+              <span class="spread-desc">Situation, Challenge, Advice</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" id="start-reading" class="primary-btn">
+          <span>Begin Reading</span>
+          <span class="btn-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card Selection Screen -->
+    <div id="selection-screen" class="screen">
+      <div class="selection-header">
+        <h2>Choose Your Cards</h2>
+        <p id="selection-instruction">Select 3 cards from the deck</p>
+      </div>
+      
+      <div class="cards-grid" id="cards-grid">
+        <!-- Cards will be dynamically loaded here -->
+      </div>
+
+      <div class="selected-cards-info">
+        <span>Cards selected: <strong id="selected-count">0</strong>/3</span>
+        <button type="button" id="confirm-selection" class="primary-btn" disabled>
+          Reveal Reading
+        </button>
+      </div>
+    </div>
+
+    <!-- Reading Screen -->
+    <div id="reading-screen" class="screen">
+      <div class="reading-header">
+        <h2>Your Reading</h2>
+        <p id="reading-query"></p>
+      </div>
+
+      <div class="spread-display" id="spread-display">
+        <!-- Card positions will be shown here -->
+      </div>
+
+      <div class="interpretation-section">
+        <h3>🔮 AI Interpretation</h3>
+        <div id="interpretation-text" class="interpretation-text">
+          <div class="loading">
+            <div class="spinner"></div>
+            <p>Consulting the cards...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-section">
+        <h3>💬 Ask Follow-up Questions</h3>
+        <div id="chat-messages" class="chat-messages">
+          <!-- Chat messages will appear here -->
+        </div>
+        <div class="chat-input-area">
+          <input 
+            type="text" 
+            id="chat-input" 
+            placeholder="Ask about your reading..."
+          >
+          <button type="button" id="send-chat" class="send-btn">➤</button>
+        </div>
+      </div>
+
+      <button type="button" id="new-reading" class="secondary-btn">
+        Start New Reading
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
